@@ -10,5 +10,9 @@ import Foundation
 import UIKit
 
 class MainStoriesCellView: UITableViewCell {
+    @IBOutlet weak var headlineImageView: UIImageView!
+    
+    @IBOutlet weak var headlineLabel: UILabel!
+    
     
 }
