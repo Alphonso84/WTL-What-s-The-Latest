@@ -29,13 +29,11 @@ public func getNewsData() {
             let jsonDecoder = JSONDecoder()
 
             let jsonData = try jsonDecoder.decode(Article.self, from: data!)
-//  guard let me = try? JSONDecoder().decode(Article.self.init(data: data!)
+
 //            let jsonData = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String : AnyObject]
-            
             
             print(jsonData)
             
-           
         } catch {
             print(error)
         }
