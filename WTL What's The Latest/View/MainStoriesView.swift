@@ -11,6 +11,7 @@ import UIKit
 class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
+    @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -18,6 +19,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         return cell
     }
     override func viewDidLoad() {

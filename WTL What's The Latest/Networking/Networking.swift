@@ -26,17 +26,14 @@ public func getNewsData() {
         
         guard let unwrappedURL = data else {return}
         do {
-//            let jsonDecoder = JSONDecoder()
-//
-//            let jsonData = try jsonDecoder.decode(Stories.self, from: data!)
-            let jsonData = try JSONSerialization.jsonObject(with: unwrappedURL, options: .allowFragments )
+            let jsonDecoder = JSONDecoder()
+
+            let jsonData = try jsonDecoder.decode(News.self, from: data!)
             
-//            let jsonData = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String : AnyObject]
-            let newsData = jsonData as! [String: AnyObject]
+            let news = jsonData.articles
             
-            newsStories = Article(source: newsData["source"] as? String, author: newsData["author"] as? String, title: newsData["title"] as? String, description: newsData["description"] as? String, url: newsData["url"] as? String, urlToImage: newsData["urlToImage"] as? String, publishedAt: newsData["publishedAt"] as? String)
-            
-            print(newsStories)
+
+            print(news)
             
         } catch {
             print(error)

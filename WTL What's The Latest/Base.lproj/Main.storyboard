@@ -90,6 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="newsTitle" destination="SKq-1p-985" id="3Ch-VM-58v"/>
                         <outlet property="tableView" destination="fin-wx-Z2C" id="UPa-ow-iEx"/>
                     </connections>
                 </viewController>
