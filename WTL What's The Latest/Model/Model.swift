@@ -10,33 +10,24 @@ import Foundation
 import UIKit
 
 
-struct Stories: Codable {
-    var articles = String()
-
-    init(with dictionary: [String: AnyObject]?) {
-        guard let dictionary = dictionary else { return }
-        articles = dictionary["articles"] as! String
-}
-}
 
 struct Article: Codable {
-    var source = String()
-    var author = String()
-    var title = String()
-    var description = String()
-    var url = String()
-    var urlToImage = String()
-    var publishedAt = String()
+    var source: String?
+    var author: String?
+    var title: String?
+    var description: String?
+    var url: String?
+    var urlToImage: String?
+    var publishedAt: String?
 
-    init(with dictionary: [String: AnyObject]?) {
-        guard let dictionary = dictionary else { return }
-        source = dictionary["source"] as! String
-        author = dictionary["author"] as! String
-        title = dictionary["title"] as! String
-        description = dictionary["description"] as! String
-        url = dictionary["url"] as! String
-        urlToImage = dictionary["urlToImage"] as! String
-        publishedAt = dictionary["publishedAt"] as! String
+    init(source:String?, author: String?, title: String?,description: String?, url: String?, urlToImage: String?, publishedAt: String?) {
+        self.source = source
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
     }
 
 }

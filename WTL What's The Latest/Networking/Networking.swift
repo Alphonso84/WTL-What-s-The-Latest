@@ -15,7 +15,7 @@ var category = "category=technology&"
 
 var url = "\(baseURL)\(category)\(apiKey)"
 
-var newsStories = [String:Any]()
+var newsStories: Article? = nil
 
 public func getNewsData() {
     let unwrappedURL = URL(string: url)
@@ -26,13 +26,17 @@ public func getNewsData() {
         
         guard let unwrappedURL = data else {return}
         do {
-            let jsonDecoder = JSONDecoder()
-
-            let jsonData = try jsonDecoder.decode(Article.self, from: data!)
-
-//            let jsonData = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String : AnyObject]
+//            let jsonDecoder = JSONDecoder()
+//
+//            let jsonData = try jsonDecoder.decode(Stories.self, from: data!)
+            let jsonData = try JSONSerialization.jsonObject(with: unwrappedURL, options: .allowFragments )
             
-            print(jsonData)
+//            let jsonData = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String : AnyObject]
+            let newsData = jsonData as! [String: AnyObject]
+            
+            newsStories = Article(source: newsData["source"] as? String, author: newsData["author"] as? String, title: newsData["title"] as? String, description: newsData["description"] as? String, url: newsData["url"] as? String, urlToImage: newsData["urlToImage"] as? String, publishedAt: newsData["publishedAt"] as? String)
+            
+            print(newsStories)
             
         } catch {
             print(error)
@@ -44,5 +48,3 @@ public func getNewsData() {
 }
 
 
-//            let jsonDecoder = JSONDecoder()
-//            let jsonData = try jsonDecoder.decode(Array<Currently>.self, from: data!)
