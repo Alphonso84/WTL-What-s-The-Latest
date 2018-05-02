@@ -11,28 +11,34 @@ import UIKit
 class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    @IBOutlet weak var newsTitle: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
+        cell?.headlineLabel.text = "Place Holder"
+        cell?.headlineLabel.textColor = UIColor.white
+        return (cell)!
+    }
+    
+    func viewWillAppear() {
+        getNewsData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getNewsData()
+        
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
+   
+    
+    
 }
 
