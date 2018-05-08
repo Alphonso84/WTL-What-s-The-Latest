@@ -11,6 +11,11 @@ import UIKit
 
 class InitialScreen: UIViewController {
     
+    
+    
+    override func viewDidLoad() {
+        getNewsData()
+    }
     @IBAction func getNewsButton(_ sender: Any) {
         getNewsData()
         

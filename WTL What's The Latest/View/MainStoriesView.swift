@@ -21,8 +21,11 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
+        //cell?.imageView?.image = allArticles[indexPath.row].urlToImage
         return (cell)!
     }
+    
+  
     
     func viewWillAppear() {
         getNewsData()
