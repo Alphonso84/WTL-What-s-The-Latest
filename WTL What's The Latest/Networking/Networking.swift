@@ -12,10 +12,11 @@ import UIKit
 var baseURL = "https://newsapi.org/v2/top-headlines?country=us&"
 private var apiKey = "apiKey=8ebe5d6660ea4d8a8d73aac36ce2c5e4"
 var category = "category=technology&"
-
 var url = "\(baseURL)\(category)\(apiKey)"
 
-var newsStories = Article.self
+
+var allArticles = [Article]()
+
 
 public func getNewsData() {
     let unwrappedURL = URL(string: url)
@@ -28,13 +29,19 @@ public func getNewsData() {
         do {
               let jsonDecoder = JSONDecoder()
 
-            let jsonData = try jsonDecoder.decode(News.self, from: data!)
+            let jsonData = try! jsonDecoder.decode(News.self, from: data!)
+            
+           allArticles = [Article](jsonData.articles)
+            
+            
+            
+     
 //           let jsonData = try JSONSerialization.jsonObject(with: unwrappedURL, options: .allowFragments ) as! [String:AnyObject]
 
             
-            
+            print(allArticles)
            
-         print(jsonData)
+            //print(newsStories[0].description)
            
            
           // let reports = jsonData["articles"]
