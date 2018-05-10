@@ -37,7 +37,7 @@ public func getNewsData() {
             
             
             //print(allArticles[0].urlToImage)
-           print(allArticles[0].urlToImage?.replacingOccurrences(of: "Optional()", with: ""))
+           print(allArticles[0].urlToImage!)
            
             
         } catch {
@@ -49,13 +49,13 @@ public func getNewsData() {
     task.resume()
     
 }
-    func downloadImage(at urlString: String, completion: @escaping(Bool, UIImage?) -> ()) {
+    func downloadImage(at urlString: String, completion: @escaping(Bool, UIImage!) -> ()) {
         
         let url = URL(string: urlString)
         
-        guard let unwrappedURL = url else {return}
+        let unwrappedURL = url
         
-        let request = URLRequest(url: unwrappedURL)
+        let request = URLRequest(url: unwrappedURL!)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             
