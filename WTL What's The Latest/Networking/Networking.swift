@@ -65,6 +65,8 @@ public func getNewsData() {
         task.resume()
         
     }
+    
+    
 
 
 

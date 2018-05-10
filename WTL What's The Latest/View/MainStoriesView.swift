@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+var newsImages = [UIImage]()
+
 class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -18,23 +21,32 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         return allArticles.count
     }
     
+   
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
+        
+        //loadImage()
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
-        //cell?.imageView?.image = allArticles[indexPath.row].urlToImage
+        cell?.headlineImageView.image = newsImages[indexPath.row]
         
-        func loadImage() {
-            cell?.headlineImageView.image = Networking().downloadImage(at:
-                //Need to make changes to line below to grab url from each instance
-                (allArticles[0].urlToImage!), completion: { (success, image) in
+        return (cell)!
+    }
+     func loadImage() {
+        //cell?.headlineImageView.image =
+            
+            Networking().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[0].urlToImage!), completion: { (success, image) in
                 if success == true {
                     print("got image data from URL")
                     DispatchQueue.main.async {
+                        newsImages.append(image)
                         
-                        cell?.headlineImageView.image = image
+                       .cell?.headlineImageView.image = image
+                        
                     }
                     
                     
@@ -43,19 +55,17 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     print ("Error getting image")
                 }
                 
-            }) as? UIImage
-        }
-        
-       
-        
-        loadImage()
-        return (cell)!
+        })
+                //as? UIImage
     }
     
    
     
     func viewWillAppear() {
         Networking().getNewsData()
+        loadImage()
+        print(newsImages.count)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

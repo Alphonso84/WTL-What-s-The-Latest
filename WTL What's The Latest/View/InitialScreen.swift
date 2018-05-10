@@ -15,9 +15,11 @@ class InitialScreen: UIViewController {
     
     override func viewDidLoad() {
         Networking().getNewsData()
+      
     }
     @IBAction func getNewsButton(_ sender: Any) {
         Networking().getNewsData()
+        
         
     }
     
