@@ -25,13 +25,19 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
         //cell?.imageView?.image = allArticles[indexPath.row].urlToImage
-        Networking().downloadImage(at: (allArticles[0].urlToImage)!, completion: { (success, image) in
+        
+        
+        
+        Networking().downloadImage(at: (allArticles[2].urlToImage!), completion: { (success, image) in
             if success == true {
                 print("got image data from URL")
                 DispatchQueue.main.async {
-                    cell?.imageView?.image = image
                     
-                }
+                        cell?.headlineImageView.image = image
+                    }
+                
+                    
+                
             } else {
                 print ("Error getting image")
             }
