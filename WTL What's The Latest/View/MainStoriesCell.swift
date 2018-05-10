@@ -15,4 +15,6 @@ class MainStoriesCellView: UITableViewCell {
     @IBOutlet weak var headlineLabel: UILabel!
     
     
+   
+    
 }

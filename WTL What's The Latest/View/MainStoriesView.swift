@@ -17,18 +17,35 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allArticles.count
     }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
         //cell?.imageView?.image = allArticles[indexPath.row].urlToImage
+        Networking().downloadImage(at: (allArticles[indexPath.row].urlToImage?.replacingOccurrences(of: "Optional()", with: ""))!, completion: { (success, image) in
+            if success == true {
+                print("got image data from URL")
+                DispatchQueue.main.async {
+                    cell?.imageView?.image = image
+                    
+                }
+            } else {
+                print ("Error getting image")
+            }
+            
+        })
+        
+        
         return (cell)!
     }
     
-  
+   
     
     func viewWillAppear() {
-        getNewsData()
+        Networking().getNewsData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +54,22 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+      
+        
+        
+        }
         // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
+    
     }
+    
+    
+   
     
    
     
     
-}
+
 

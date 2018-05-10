@@ -18,6 +18,9 @@ var url = "\(baseURL)\(category)\(apiKey)"
 var allArticles = [Article]()
 
 
+class Networking {
+
+
 public func getNewsData() {
     let unwrappedURL = URL(string: url)
     print(unwrappedURL!)
@@ -33,7 +36,8 @@ public func getNewsData() {
               allArticles = [Article](jsonData.articles)
             
             
-            print(allArticles[0].urlToImage)
+            //print(allArticles[0].urlToImage)
+           print(allArticles[0].urlToImage?.replacingOccurrences(of: "Optional()", with: ""))
            
             
         } catch {
@@ -45,5 +49,27 @@ public func getNewsData() {
     task.resume()
     
 }
+    func downloadImage(at urlString: String, completion: @escaping(Bool, UIImage?) -> ()) {
+        
+        let url = URL(string: urlString)
+        
+        guard let unwrappedURL = url else {return}
+        
+        let request = URLRequest(url: unwrappedURL)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            guard let data = data, let image = UIImage(data: data) else { completion(false, nil); return}
+            completion(true, image)
+        }
+        task.resume()
+        
+    }
+
+
+
+}
+
+
 
 
