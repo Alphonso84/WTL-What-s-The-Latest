@@ -48,6 +48,7 @@ public func getNewsData() {
     
     task.resume()
     
+    
 }
     func downloadImage(at urlString: String, completion: @escaping(Bool, UIImage!) -> ()) {
         
