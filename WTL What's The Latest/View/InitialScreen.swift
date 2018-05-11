@@ -20,7 +20,7 @@ class InitialScreen: UIViewController {
     }
     @IBAction func getNewsButton(_ sender: Any) {
         Networking().getNewsData()
-        
+            MainStoriesView().imageParser()
         
     }
     

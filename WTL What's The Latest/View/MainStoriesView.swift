@@ -9,16 +9,16 @@
 import UIKit
 
 var allURLS = String()
-var newsImages = [UIImage]()
+
 
 class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
+  
     
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return newsImages.count
     }
     
    
@@ -27,117 +27,131 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
+     
+        
        
-            Networking().downloadImage(at:
-                //Need to make changes to line below to grab url from each instance
-                (allArticles[0].urlToImage)!, completion: { (success, image) in
-                    if success == true {
-                        print("got image data from URL")
-                        DispatchQueue.main.async {
-
-
-                            newsImages.append(image)
-                            cell?.headlineImageView.image = newsImages[indexPath.row]
-
-
-                        }
-
-                    } else {
-                        print ("Error getting image")
-                    }
-
-            })
-        
-        Networking().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[1].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    DispatchQueue.main.async {
-                        
-                      
-                        newsImages.append(image)
-                        cell?.headlineImageView.image = newsImages[indexPath.row]
-                        
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Networking().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[2].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    DispatchQueue.main.async {
-                        
-                       
-                        newsImages.append(image)
-                        cell?.headlineImageView.image = newsImages[indexPath.row]
-                        
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Networking().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[3].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    DispatchQueue.main.async {
-                        
-                      
-                        newsImages.append(image)
-                        cell?.headlineImageView.image = newsImages[indexPath.row]
-                        
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Networking().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[4].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    DispatchQueue.main.async {
-                        
-                       
-                        newsImages.append(image)
-                        cell?.headlineImageView.image = newsImages[indexPath.row]
-                        
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
+        DispatchQueue.main.async {
+            cell?.headlineImageView.image = newsImages[indexPath.row]
+        }
         
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
         
        
-        
+           imageParser()
         return (cell)!
     }
     
+    public func imageParser() {
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[0].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[1].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[2].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[3].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[4].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+    }
    
     
     func viewWillAppear() {
        
-    
+ 
    
         
     }
