@@ -24,24 +24,24 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
    
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
+        
      
-        cell?.headlineImageView.image = newsImages[indexPath.row]
        
+        
         DispatchQueue.main.async {
             
+            self.imageParser()
+            cell?.headlineImageView.image = newsImages[indexPath.row]
+            
+           
+            
         }
-        
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
-        
-        DispatchQueue.main.async {
-            self.imageParser()
-        }
-        
         return (cell)!
+        
     }
     
     func imageParser() {
@@ -54,6 +54,8 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
+                    
+                    
                     
                     
                     
@@ -73,8 +75,11 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     
                     
                     DispatchQueue.main.async {
+                        
                         newsImages.append(image)
                     }
+                    
+                    
                     
                         
                     
@@ -193,15 +198,75 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 
         })
         
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[7].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[8].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
+        Controller().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[9].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    
+                    
+                    DispatchQueue.main.async {
+                        newsImages.append(image)
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        
     }
    
     
-    func viewWillAppear() {
-       
- 
-   
-        
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
