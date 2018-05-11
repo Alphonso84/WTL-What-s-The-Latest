@@ -37,7 +37,7 @@ public func getNewsData() {
             
             
             //print(allArticles[0].urlToImage)
-           print(allArticles[0].urlToImage!)
+          // print(allArticles[0].urlToImage!)
            
             
         } catch {

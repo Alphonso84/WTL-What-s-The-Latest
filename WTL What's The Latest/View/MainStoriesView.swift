@@ -18,7 +18,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 5
     }
     
    
@@ -27,54 +27,107 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
-        func appendImages(arrayIndex: Int) {
+       
             Networking().downloadImage(at:
                 //Need to make changes to line below to grab url from each instance
-                (allArticles[arrayIndex].urlToImage)!, completion: { (success, image) in
+                (allArticles[0].urlToImage)!, completion: { (success, image) in
                     if success == true {
                         print("got image data from URL")
                         DispatchQueue.main.async {
-                           
+
+
                             newsImages.append(image)
-                            
-                            
+                            cell?.headlineImageView.image = newsImages[indexPath.row]
+
+
                         }
-                        
+
                     } else {
                         print ("Error getting image")
                     }
-                    
+
             })
-        }
         
-        appendImages(arrayIndex: 0)
-        appendImages(arrayIndex: 1)
-        appendImages(arrayIndex: 2)
-        appendImages(arrayIndex: 3)
-        appendImages(arrayIndex: 4)
-        appendImages(arrayIndex: 5)
-        appendImages(arrayIndex: 6)
-        appendImages(arrayIndex: 7)
-        appendImages(arrayIndex: 8)
-        appendImages(arrayIndex: 9)
-        appendImages(arrayIndex: 10)
-        appendImages(arrayIndex: 11)
-        appendImages(arrayIndex: 12)
-        appendImages(arrayIndex: 13)
-        appendImages(arrayIndex: 14)
-        appendImages(arrayIndex: 15)
-        appendImages(arrayIndex: 16)
-        appendImages(arrayIndex: 17)
-        appendImages(arrayIndex: 18)
-        appendImages(arrayIndex: 19)
+        Networking().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[1].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    DispatchQueue.main.async {
+                        
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                        
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
         
+        Networking().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[2].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    DispatchQueue.main.async {
+                        
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                        
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
         
+        Networking().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[3].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    DispatchQueue.main.async {
+                        
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                        
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
         
+        Networking().downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (allArticles[4].urlToImage)!, completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    DispatchQueue.main.async {
+                        
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                        
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
         
         
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
-        cell?.headlineImageView.image = newsImages[indexPath.row]
+        
        
         
         return (cell)!
@@ -83,7 +136,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
    
     
     func viewWillAppear() {
-        Networking().getNewsData()
+       
     
    
         
