@@ -31,8 +31,10 @@ public func getNewsData() {
         do {
               let jsonDecoder = JSONDecoder()
               let jsonData = try! jsonDecoder.decode(News.self, from: data!)
+           
+                 allArticles = [Article](jsonData.articles)
             
-              allArticles = [Article](jsonData.articles)
+            
             
             
             //print(allArticles[0].urlToImage)

@@ -26,9 +26,9 @@ class Controller: UIViewController {
         let request = URLRequest(url: unwrappedURL!)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data, let image = UIImage(data: data) else { completion(false, nil); return}
-            completion(true, image)
+                guard let data = data, let image = UIImage(data: data) else { completion(false, nil); return}
+                completion(true, image)
+           
         }
         task.resume()
         

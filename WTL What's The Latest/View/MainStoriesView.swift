@@ -32,7 +32,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         DispatchQueue.main.async {
             
-            self.imageParser()
+           
             cell?.headlineImageView.image = newsImages[indexPath.row]
             
            
@@ -44,7 +44,12 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
-    func imageParser() {
+   
+   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        newsImages.removeAll()
+        
         Controller().downloadImage(at:
             //Need to make changes to line below to grab url from each instance
             (allArticles[0].urlToImage)!, completion: { (success, image) in
@@ -53,12 +58,8 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     
                     DispatchQueue.main.async {
                         newsImages.append(image)
+
                     }
-                    
-                    
-                    
-                    
-                    
                     
                 } else {
                     print ("Error getting image")
@@ -72,19 +73,9 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 if success == true {
                     print("got image data from URL")
                     
-                    
-                    
                     DispatchQueue.main.async {
-                        
                         newsImages.append(image)
                     }
-                    
-                    
-                    
-                        
-                    
-                    
-                    
                     
                     
                 } else {
@@ -120,14 +111,9 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 if success == true {
                     print("got image data from URL")
                     
-                    
-                    
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
-                    
-                    
-                    
                     
                 } else {
                     print ("Error getting image")
@@ -141,15 +127,10 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 if success == true {
                     print("got image data from URL")
                     
-                    
-                    
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
-                    
-                    
-                    
-                    
+                
                 } else {
                     print ("Error getting image")
                 }
@@ -162,15 +143,12 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 if success == true {
                     print("got image data from URL")
                     
-                    
-                    
+            
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
                     
-                    
-                    
-                    
+        
                 } else {
                     print ("Error getting image")
                 }
@@ -188,8 +166,6 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
-                    
-                    
                     
                     
                 } else {
@@ -253,20 +229,15 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     }
                     
                     
-                    
-                    
-                    
-                    
                 } else {
                     print ("Error getting image")
                 }
                 
         })
         
+       
+       
     }
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

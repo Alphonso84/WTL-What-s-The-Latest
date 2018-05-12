@@ -113,7 +113,7 @@
                                 <state key="normal" title="Get News"/>
                                 <connections>
                                     <action selector="getNewsButton:" destination="Bh6-o7-BT5" eventType="touchUpInside" id="IwJ-Ko-Ffz"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="wSt-WT-svn"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="initialSegue" id="wSt-WT-svn"/>
                                 </connections>
                             </button>
                         </subviews>
