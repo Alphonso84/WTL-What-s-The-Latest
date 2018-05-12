@@ -19,39 +19,34 @@ var allArticles = [Article]()
 
 
 class Networking: UIViewController {
-
-public func getNewsData() {
-    let unwrappedURL = URL(string: url)
-    print(unwrappedURL!)
-    let session = URLSession.shared
-    let task = session.dataTask(with: unwrappedURL!) { data, response, error in
-        print("Start")
-        
-        guard let unwrappedURL = data else {return}
-        do {
-              let jsonDecoder = JSONDecoder()
-              let jsonData = try! jsonDecoder.decode(News.self, from: data!)
-           
-                 allArticles = [Article](jsonData.articles)
-            
-            
-            
-            
-            //print(allArticles[0].urlToImage)
-          // print(allArticles[0].urlToImage!)
-           
-            
-        } catch {
-            print(error)
-        }
     
+    public func getNewsData() {
+        let unwrappedURL = URL(string: url)
+        print(unwrappedURL!)
+        let session = URLSession.shared
+        let task = session.dataTask(with: unwrappedURL!) { data, response, error in
+            print("Start")
+            
+            guard let unwrappedURL = data else {return}
+            do {
+                let jsonDecoder = JSONDecoder()
+                let jsonData = try! jsonDecoder.decode(News.self, from: data!)
+                
+                allArticles = [Article](jsonData.articles)
+                
+                
+                
+            } catch {
+                print(error)
+            }
+            
+        }
+        
+        task.resume()
+        
+        
     }
     
-    task.resume()
-    
-    
-}
-  
     
     
     

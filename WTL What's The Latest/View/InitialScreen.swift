@@ -26,11 +26,11 @@ class InitialScreen: UIViewController {
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getNewsData()
         
-      
+        
     }
     @IBAction func getNewsButton(_ sender: Any) {
-       
-       
+        
+        
         
     }
     

@@ -13,7 +13,7 @@ var allURLS = String()
 
 class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-  
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,21 +21,21 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         return newsImages.count
     }
     
-   
+    
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
         
-     
-       
+        
+        
         
         DispatchQueue.main.async {
             
-           
+            
             cell?.headlineImageView.image = newsImages[indexPath.row]
             
-           
+            
             
         }
         cell?.headlineLabel.text = allArticles[indexPath.row].title
@@ -44,8 +44,8 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
-   
-   
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         newsImages.removeAll()
@@ -58,7 +58,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     
                     DispatchQueue.main.async {
                         newsImages.append(image)
-
+                        
                     }
                     
                 } else {
@@ -130,7 +130,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
-                
+                    
                 } else {
                     print ("Error getting image")
                 }
@@ -143,12 +143,12 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 if success == true {
                     print("got image data from URL")
                     
-            
+                    
                     DispatchQueue.main.async {
                         newsImages.append(image)
                     }
                     
-        
+                    
                 } else {
                     print ("Error getting image")
                 }
@@ -235,33 +235,33 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
                 
         })
         
-       
-       
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
-      
         
         
-        }
-        // Do any additional setup after loading the view, typically from a nib.
-    
-    
-    
-    
+        
     }
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
+    
+}
 
-    
-    
-   
-    
-   
-    
-    
+
+
+
+
+
+
+
 
 
