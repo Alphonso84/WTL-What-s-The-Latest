@@ -8,8 +8,6 @@
 
 import UIKit
 
-var allURLS = String()
-
 
 class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,8 +15,9 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsImages.count
+        return myImageURLs.count
     }
     
     
@@ -26,20 +25,359 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
+       
+        
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[0]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                        
+                    }
+
+                } else {
+                    print ("Error getting image")
+                }
+
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[1]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                     
+                        newsImages.append(image)
+                       cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[2]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[3]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                       cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[4]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[5]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[6]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[7]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                       cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[8]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[9]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                       cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[10]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                        
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[11]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[12]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[13]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                        
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[14]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[15]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                        
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[16]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[17]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[18]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                       
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
+        Controller.downloadImage(at:
+            //Need to make changes to line below to grab url from each instance
+            (myImageURLs[19]), completion: { (success, image) in
+                if success == true {
+                    print("got image data from URL")
+                    
+                    DispatchQueue.main.async {
+                      
+                        newsImages.append(image)
+                        cell?.headlineImageView.image = newsImages[indexPath.row]
+                    }
+                    
+                } else {
+                    print ("Error getting image")
+                }
+                
+        })
         
         
         
         
-        DispatchQueue.main.async {
-            
-            
-            cell?.headlineImageView.image = newsImages[indexPath.row]
-            
-            
-            
-        }
-        cell?.headlineLabel.text = allArticles[indexPath.row].title
-        cell?.headlineLabel.textColor = UIColor.white
+     
+        
+            cell?.headlineLabel.text = allArticles[indexPath.row].title
+            cell?.headlineLabel.textColor = UIColor.white
+        
+        
         return (cell)!
         
     }
@@ -48,194 +386,9 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     override func viewWillAppear(_ animated: Bool) {
-        newsImages.removeAll()
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[0].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                        
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[1].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[2].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[3].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[4].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[5].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[6].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[7].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[8].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        Controller().downloadImage(at:
-            //Need to make changes to line below to grab url from each instance
-            (allArticles[9].urlToImage)!, completion: { (success, image) in
-                if success == true {
-                    print("got image data from URL")
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        newsImages.append(image)
-                    }
-                    
-                    
-                } else {
-                    print ("Error getting image")
-                }
-                
-        })
-        
-        
+       
+        Controller().getImageURLS()
+       
         
     }
     override func viewDidLoad() {
@@ -250,9 +403,6 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
-    
     
 }
 
