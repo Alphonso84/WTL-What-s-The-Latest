@@ -20,7 +20,8 @@ var allArticles = [Article]()
 
 class Networking: UIViewController {
     
-    public func getNewsData() {
+   @objc func getNewsData() {
+    
         let unwrappedURL = URL(string: url)
         print(unwrappedURL!)
         let session = URLSession.shared
@@ -43,7 +44,6 @@ class Networking: UIViewController {
         }
         
         task.resume()
-        
         
     }
     

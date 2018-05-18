@@ -27,9 +27,12 @@ class InitialScreen: UIViewController {
     }
     override func viewDidLoad() {
         //Controller().iterateImageUrl()
+       
+        
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
         Networking().getNewsData()
        
+        
         
         
     }
