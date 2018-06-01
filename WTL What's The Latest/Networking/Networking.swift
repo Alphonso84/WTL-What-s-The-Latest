@@ -28,12 +28,22 @@ class Networking: UIViewController {
         let task = session.dataTask(with: unwrappedURL!) { data, response, error in
             print("Start")
             
-            guard let unwrappedURL = data else {return}
+            guard data != nil else {return}
             do {
                 let jsonDecoder = JSONDecoder()
                 let jsonData = try! jsonDecoder.decode(News.self, from: data!)
                 
-                allArticles = [Article](jsonData.articles)
+                
+                DispatchQueue.main.async {
+                    allArticles = [Article](jsonData.articles)
+                    Controller().getImageURLS()
+                    Controller.downloadImage(at: myImageURLs) { (true, image) in
+                        newsImages.append(image)
+                        
+                    }
+                    }
+                
+                    
                 
                 
                 

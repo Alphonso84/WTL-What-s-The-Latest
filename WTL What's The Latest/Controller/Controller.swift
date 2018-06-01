@@ -23,6 +23,8 @@ class Controller: UIViewController {
         for item in urlStrings {
             url = URL(string: item)!
             let unwrappedURL = url
+            DispatchQueue.main.async {
+                
             
             let request = URLRequest(url: unwrappedURL!)
             let session = URLSession.shared
@@ -35,6 +37,7 @@ class Controller: UIViewController {
             
         }
         }
+    }
 //        let url = URL(string: urlStrings)
         
         
@@ -48,11 +51,14 @@ class Controller: UIViewController {
         myImageURLs.append(allArticles[3].urlToImage!)
         myImageURLs.append(allArticles[4].urlToImage!)
         myImageURLs.append(allArticles[5].urlToImage!)
-        myImageURLs.append(allArticles[6].urlToImage!)
         myImageURLs.append(allArticles[7].urlToImage!)
+         myImageURLs.append(allArticles[6].urlToImage!)
         myImageURLs.append(allArticles[8].urlToImage!)
-        myImageURLs.append(allArticles[9].urlToImage!)
-//        myImageURLs.append(allArticles[10].urlToImage!)
+       
+       
+        
+ //       myImageURLs.append(allArticles[9].urlToImage!)
+//       myImageURLs.append(allArticles[10].urlToImage!)
 //        myImageURLs.append(allArticles[11].urlToImage!)
 //        myImageURLs.append(allArticles[12].urlToImage!)
 //        myImageURLs.append(allArticles[13].urlToImage!)

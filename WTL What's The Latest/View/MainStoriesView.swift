@@ -21,10 +21,9 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainStoriesCellView
         
         
         
@@ -33,6 +32,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell?.headlineLabel.text = allArticles[indexPath.row].title
         cell?.headlineLabel.textColor = UIColor.white
         cell?.headlineImageView.image = newsImages[indexPath.row]
+       
         
         return (cell)!
         
@@ -47,7 +47,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         
-         Controller().getImageURLS()
+        
         
        
         
@@ -57,10 +57,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Controller.downloadImage(at: myImageURLs) { (true, image) in
-            newsImages.append(image)
-            
-        }
+       
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
