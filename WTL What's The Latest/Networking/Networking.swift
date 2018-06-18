@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 //URL STRUCTURE: Base->category->apiKey
 var baseURL = "https://newsapi.org/v2/top-headlines?country=us&"
-private var apiKey = "apiKey=8ebe5d6660ea4d8a8d73aac36ce2c5e4"
+private var apiKey = ""
 var category = "category=technology&"
 var url = "\(baseURL)\(category)\(apiKey)"
 var allArticles = [Article]()
