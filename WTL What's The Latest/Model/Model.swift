@@ -29,7 +29,7 @@ struct Article: Codable {
     let description: String?
     let url: String?
     let urlToImage: String?
-    let publishedAt: String
+    let publishedAt: String?
     
     init (source: Source, author: String?, title: String?, description: String?, url: String?, urlToImage: String?, publishedAt: String) {
         self.source = source
@@ -44,7 +44,7 @@ struct Article: Codable {
 
 struct Source: Codable {
     let id: String?
-    let name: String
+    let name: String?
 }
 
 // MARK: Convenience initializers

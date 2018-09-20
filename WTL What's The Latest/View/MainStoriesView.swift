@@ -29,7 +29,7 @@ class MainStoriesView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         
         
-        cell?.headlineLabel.text = allArticles[indexPath.row].title
+        cell?.headlineLabel.text = allArticles[indexPath.row]?.title
         cell?.headlineLabel.textColor = UIColor.white
         cell?.headlineImageView.image = newsImages[indexPath.row]
        

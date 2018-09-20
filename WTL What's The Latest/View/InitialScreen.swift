@@ -23,14 +23,15 @@ class InitialScreen: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+       Networking().getNewsData()
+       
     }
     override func viewDidLoad() {
         //Controller().iterateImageUrl()
        
         
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
-        Networking().getNewsData()
+//        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(switchViews), userInfo: nil, repeats: false)
+       
        
         
         
@@ -38,7 +39,11 @@ class InitialScreen: UIViewController {
     }
     @IBAction func getNewsButton(_ sender: Any) {
         
-        
+        Controller().getImageURLS()
+        Controller.downloadImage(at: myImageURLs) { (true, image) in
+            newsImages.append(image!)
+            
+        }
         
     }
     

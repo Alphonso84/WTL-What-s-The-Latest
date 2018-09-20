@@ -13,7 +13,7 @@ var baseURL = "https://newsapi.org/v2/top-headlines?country=us&"
 private var apiKey = ""
 var category = "category=technology&"
 var url = "\(baseURL)\(category)\(apiKey)"
-var allArticles = [Article]()
+var allArticles = [Article?]()
 
 
 
@@ -32,23 +32,15 @@ class Networking: UIViewController {
             do {
                 let jsonDecoder = JSONDecoder()
                 let jsonData = try! jsonDecoder.decode(News.self, from: data!)
+                print(jsonData.articles[0].title)
                 
                 
                 DispatchQueue.main.async {
-                    allArticles = [Article](jsonData.articles)
-                    Controller().getImageURLS()
-                    Controller.downloadImage(at: myImageURLs) { (true, image) in
-                        newsImages.append(image)
-                        
+                allArticles.removeAll()
+                allArticles = [Article](jsonData.articles)
+                
                     }
-                    }
-                
-                    
-                
-                
-                
-            } catch {
-                print(error)
+            
             }
             
         }
